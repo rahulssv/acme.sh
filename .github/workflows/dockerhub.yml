@@ -67,7 +67,7 @@ jobs:
             fi
           fi
 
-          docker build \
+          docker buildx build \
             --tag ${DOCKER_IMAGE}:${DOCKER_IMAGE_TAG} \
             --output "type=image,push=true" \
             --build-arg AUTO_UPGRADE=${AUTO_UPGRADE} \
