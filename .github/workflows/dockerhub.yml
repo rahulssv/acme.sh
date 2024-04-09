@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   CheckToken:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-ppc64le
     outputs:
       hasToken: ${{ steps.step_one.outputs.hasToken }}
     env: 
@@ -37,7 +37,7 @@ jobs:
         run: echo ${{ steps.step_one.outputs.hasToken }}
         
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-ppc64le
     needs: CheckToken
     if: "contains(needs.CheckToken.outputs.hasToken, 'true')"
     steps:
